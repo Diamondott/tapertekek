@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Ételek Átlagos Tápértéke</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            background-color: #e8f5e9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #4caf50;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #388e3c;
+            margin-top: 20px;
+        }
+        a {
+            text-decoration: none;
+        }
+        .food-item {
+            display: inline-block;
+            margin: 15px;
+            padding: 10px;
+            border: 2px solid #4caf50;
+            border-radius: 8px;
+            background-color: #fff;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .food-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        img {
+            width: 150px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .filter-container {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Tápanyagok</h1>
+
+<div class="filter-container">
+    <label><input type="checkbox" id="fruitFilter" checked> Gyümölcsök</label>
+    <label><input type="checkbox" id="vegFilter" checked> Zöldségek</label>
+</div>
+
+<div class="food-item fruit">
+    <h2>Alma</h2>
+    <a href="file:///C:/Users/Mark/Desktop/Website/Website%20oldalak/Alma.html">
+        <img src="C:\Users\Mark\Desktop\Website\Website_images\Alma_image.jpeg" alt="Alma">
+    </a>
+</div>
+
+<div class="food-item veg">
+    <h2>Sárgarépa</h2>
+    <a href="file:///C:/Users/Mark/Desktop/Website/Website%20oldalak/R%C3%A9pa.html">
+        <img src="C:\Users\Mark\Desktop\Website\Website_images\Répa_image.jpeg" alt="Répa">
+    </a>
+</div>
+
+<div class="food-item fruit">
+    <h2>Banán</h2>
+    <a href="file:///C:/Users/Mark/Desktop/Website/Website%20oldalak/Ban%C3%A1n.html">
+        <img src="C:\Users\Mark\Desktop\Website\Website_images\Banán_image.jpeg" alt="Banán">
+    </a>
+</div>
+
+<div class="food-item fruit">
+    <h2>Körte</h2>
+    <a href="file:///C:/Users/Mark/Desktop/Website/Website%20oldalak/K%C3%B6rte.html">
+        <img src="C:\Users\Mark\Desktop\Website\Website_images\Körte_image.jpeg" alt="Körte">
+    </a>
+</div>
+
+<div class="food-item fruit">
+    <h2>Ananász</h2>
+    <a href="file:///C:/Users/Mark/Desktop/Website/Website%20oldalak/Anan%C3%A1sz.html">
+        <img src="C:\Users\Mark\Desktop\Website\Website_images\Ananász_image.jpeg" alt="Ananász">
+    </a>
+</div>
+
+<div class="food-item fruit">
+    <h2>Szőlő</h2>
+    <a href="file:///C:/Users/Mark/Desktop/Website/Website%20oldalak/Szőlő.html">
+        <img src="C:\Users\Mark\Desktop\Website\Website_images\Szőlő_image.jpeg" alt="Szőlő">
+    </a>
+</div>
+
+<div class="food-item veg">
+    <h2>Paprika</h2>
+    <a href="file:///C:/Users/Mark/Desktop/Website/Website%20oldalak/Paprika.html">
+        <img src="C:\Users\Mark\Desktop\Website\Website_images\Paprika_image.jpeg" alt="Paprika">
+    </a>
+</div>
+
+<div class="food-item veg">
+    <h2>Paradicsom</h2>
+    <a href="file:///C:/Users/Mark/Desktop/Website/Website%20oldalak/Paradicsom.html">
+        <img src="C:\Users\Mark\Desktop\Website\Website_images\Paradicsom_image.jpeg" alt="Paradicsom">
+    </a>
+</div>
+
+<div class="food-item veg">
+    <h2>Brokkoli</h2>
+    <a href="file:///C:/Users/Mark/Desktop/Website/Website%20oldalak/Brokkoli.html">
+        <img src="C:\Users\Mark\Desktop\Website\Website_images\Brokkoli_image.jpeg" alt="Brokkoli">
+    </a>
+</div>
+
+<div class="food-item fruit">
+    <h2>Őszibarack</h2>
+    <a href="file:///C:/Users/Mark/Desktop/Website/Website%20oldalak/Őszibarack.html">
+        <img src="C:\Users\Mark\Desktop\Website\Website_images\Őszibarack_image.jpeg" alt="Őszibarack">
+    </a>
+</div>
+
+<div class="food-item fruit">
+    <h2>Málna</h2>
+    <a href="file:///C:/Users/Mark/Desktop/Website/Website%20oldalak/Málna.html">
+        <img src="C:\Users\Mark\Desktop\Website\Website_images\Málna_image.jpeg" alt="Málna">
+    </a>
+</div>
+
+<script>
+    document.getElementById('fruitFilter').addEventListener('change', function() {
+        filterItems();
+    });
+
+    document.getElementById('vegFilter').addEventListener('change', function() {
+        filterItems();
+    });
+
+    function filterItems() {
+        const showFruits = document.getElementById('fruitFilter').checked;
+        const showVeggies = document.getElementById('vegFilter').checked;
+        const items = document.querySelectorAll('.food-item');
+
+        items.forEach(item => {
+            const type = item.classList.contains('fruit') ? 'fruit' : 'veg';
+            if ((type === 'fruit' && showFruits) || (type === 'veg' && showVeggies)) {
+                item.style.display = 'inline-block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
